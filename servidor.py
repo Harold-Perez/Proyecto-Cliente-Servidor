@@ -285,13 +285,13 @@ class InterfazServidor:
         globals()['print'] = nuevo_print
 
     def limpiar_texto(self):
-        """Limpia la ventana de logs."""
+        #Limpia la ventana de logs.
         self.area_texto.config(state='normal')
         self.area_texto.delete(1.0, tk.END)
         self.area_texto.config(state='disabled')
 
     def cerrar_servidor(self):
-        """Cierra servidor y finaliza la aplicación."""
+        #Cierra servidor y finaliza la aplicación.
         print("Servidor cerrado manualmente.")
         self.root.quit()
         os._exit(0)
