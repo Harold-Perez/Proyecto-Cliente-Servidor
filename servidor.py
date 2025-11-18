@@ -322,4 +322,3 @@ if __name__ == "__main__":
     app = InterfazServidor(root)
     root.mainloop()
 
-#JEJEEJEJ
