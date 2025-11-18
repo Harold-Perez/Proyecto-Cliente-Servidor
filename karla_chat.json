@@ -1,0 +1,22 @@
+[
+    {
+        "remitente": "karla",
+        "destinatario": "Todos",
+        "mensaje": "hola a todos"
+    },
+    {
+        "remitente": "karla",
+        "destinatario": "Proyecto Final",
+        "mensaje": "Archivo enviado: prueba.pdf"
+    },
+    {
+        "remitente": "karla",
+        "destinatario": "Proyecto Final",
+        "mensaje": "Archivo enviado: Astable y monoEstable.pdf"
+    },
+    {
+        "remitente": "karla",
+        "destinatario": "Proyecto Final",
+        "mensaje": "Archivo enviado: prueba.jpg"
+    }
+]

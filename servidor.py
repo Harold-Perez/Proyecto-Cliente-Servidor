@@ -59,7 +59,7 @@ def registrar_desconexion(alias):
 # Inicializa BD al iniciar servidor
 init_db()
 
-clientes = {}                  # Diccionario global: alias → {conn, codigo}
+clientes = {}                  # Diccionario global: alias → {codigo}
 lock = threading.Lock()        # Evita conflictos entre threads
 cola_mensajes = Queue()        # Cola segura para manejo de mensajes
 
@@ -104,15 +104,15 @@ def enviar_archivo(remitente, destinatario, nombre_archivo, contenido_b64):
     # Envía archivos codificados en base64. Se mandan como texto siguiendo el formato FILE:.
     mensaje = f"FILE:{remitente}:{nombre_archivo}:{contenido_b64}"
 
-    with lock:
+    with lock: #Utiliza un objeto lock (cerrojo) para asegurar que el acceso al diccionario compartido clientes sea seguro
         if destinatario.lower() == "todos":
-            for alias, info in clientes.items():
+            for alias, info in clientes.items(): #itera sobre clientes conectados
                 if alias != remitente:
                     try:
                         info["conn"].send(mensaje.encode("utf-8"))
                     except:
                         pass
-        elif destinatario in clientes:
+        elif destinatario in clientes: #enviar el archivo directamente
             try:
                 clientes[destinatario]["conn"].send(mensaje.encode("utf-8"))
             except:
@@ -299,7 +299,7 @@ class InterfazServidor:
 #MAIN DEL SERVIDOR
 if __name__ == "__main__":
     servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    servidor.bind(("127.0.0.1", 5010))
+    servidor.bind(("10.18.90.109", 5010))
     servidor.listen(5)
     print("Servidor en espera de conexiones...")
 
@@ -321,4 +321,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = InterfazServidor(root)
     root.mainloop()
+
 

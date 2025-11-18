@@ -1,0 +1,17 @@
+[
+    {
+        "remitente": "Proyecto Final",
+        "destinatario": "Todos",
+        "mensaje": "Prueba de mensaje"
+    },
+    {
+        "remitente": "Proyecto Final",
+        "destinatario": "karla",
+        "mensaje": "prueba mensaje privado"
+    },
+    {
+        "remitente": "Proyecto Final",
+        "destinatario": "Todos",
+        "mensaje": "Archivo enviado: prueba.docx"
+    }
+]
